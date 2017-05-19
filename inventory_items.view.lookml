@@ -3,11 +3,15 @@
   fields:
 
   - dimension: id
+    group_label: 'Foo'
+    label: ' ID'
     primary_key: true
     type: number
     sql: ${TABLE}.id
 
   - dimension: cost
+    group_label: 'Foo'
+    label: 'Cost'
     type: number
     sql: ${TABLE}.cost
 
@@ -17,6 +21,8 @@
     sql: ${TABLE}.created_at
 
   - dimension: product_id
+    group_label: 'Foo'
+    label: '  PID'
     type: number
     # hidden: true
     sql: ${TABLE}.product_id
