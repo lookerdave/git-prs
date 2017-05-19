@@ -1,5 +1,17 @@
 view: users_nn {
-  sql_table_name: demo_db.usersNN ;;
+  derived_table: {
+    sql:
+    SELECT 1 AS ID, 'Aaron' as first_name
+    UNION ALL
+    SELECT 1 AS ID, 'Aaron' as first_name
+    UNION ALL
+    SELECT 1 AS ID, 'Aaron' as first_name
+    UNION ALL
+    SELECT 9999 AS ID, 'Voldemort' as first_name ;;
+
+    indexes: ["ID"]
+    persist_for: "24 hours"
+  }
 
   dimension: id {
     primary_key: yes
@@ -12,13 +24,4 @@ view: users_nn {
     sql: ${TABLE}.first_name ;;
   }
 
-  dimension: last_name {
-    type: string
-    sql: ${TABLE}.last_name ;;
-  }
-
-  measure: count {
-    type: count
-    drill_fields: [id, first_name, last_name]
-  }
 }
